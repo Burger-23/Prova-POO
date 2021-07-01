@@ -2,11 +2,11 @@ package br.com.prova.curso;
 
 //CLASSE\\
 public class Curso {
-	
-	//ATRIBUTOS\\
+
+	// ATRIBUTOS\\
 	private String NomeDoCurso;
 
-	//METODOS\\
+	// METODOS\\
 	public String getNomeDoCurso() {
 		return NomeDoCurso;
 	}
@@ -14,6 +14,5 @@ public class Curso {
 	public void setNomeDoCurso(String nomeDoCurso) {
 		NomeDoCurso = nomeDoCurso;
 	}
-	
 
 }

@@ -3,6 +3,8 @@ package br.com.prova.curso;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.prova.aluno.Aluno;
+
 public class CursoController {
 
 	private static Scanner tec;
@@ -42,7 +44,7 @@ public class CursoController {
 			break;
 
 		case 4:
-			excluirCursos(cursos);
+			excluirCursos(cursos, null);
 		default:
 			break;
 
@@ -51,6 +53,7 @@ public class CursoController {
 	}
 
 	public Curso cadastrarCursos() {
+
 		Curso curso = new Curso();
 		System.out.print("\n");
 		System.out.println("-----CADASTRAR--CURSOS-----");
@@ -121,23 +124,29 @@ public class CursoController {
 		return curso;
 	}
 
-	public void excluirCursos(List<Curso> cursos) {
-
+	public void excluirCursos(List<Curso> cursos, List<Aluno> alunos) {
 		listarCursos(cursos);
 
-		if (cursos.isEmpty()) {
-			return;
-		
-		}
-		System.out.println("----EXCLUIR--CURSOS----");
+		if (!cursos.isEmpty() || !alunos.isEmpty()) {
+			System.out.println("----EXCLUIR--CURSO----");
 
-		System.out.print("Informe o ID do Aluno para excluir: ");
-		int idCurso = tec.nextInt() - 1;
+			System.out.print("Informe o ID do Curso para excluir: ");
+			int idCurso = tec.nextInt() - 1;
 
-		if (cursos.size() <= idCurso) {
-			System.out.println("Curso não cadastrado");
+			if (cursos.size() <= idCurso) {
+				System.out.println("\n");
+				System.out.println("Curso não cadastrado!!");
+				System.out.println("\n");
+				return;
+			}
+			cursos.remove(idCurso);
 			return;
+
 		}
-		cursos.remove(idCurso);
+
+		System.out.print("\n");
+		System.out.print("Impossível realizar a exclusão, há um aluno cadastrado neste curso!!");
+		System.out.print("\n");
+
 	}
 }

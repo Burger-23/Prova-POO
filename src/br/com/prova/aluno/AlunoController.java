@@ -3,10 +3,13 @@ package br.com.prova.aluno;
 import java.util.List;
 import java.util.Scanner;
 
+import br.com.prova.curso.Curso;
+
 public class AlunoController {
 
 	private static Scanner tec;
-
+	List<Curso> cursos;
+	
 	public AlunoController() {
 		tec = new Scanner(System.in);
 	}
@@ -52,6 +55,7 @@ public class AlunoController {
 
 	public Aluno cadastrarAlunos() {
 		Aluno aluno = new Aluno();
+
 		System.out.print("\n");
 		System.out.println("----CADASTRAR--ALUNOS----");
 		System.out.print("\n");
@@ -79,6 +83,9 @@ public class AlunoController {
 		tec.nextLine();
 		System.out.print("Informe em qual Cidade o Aluno mora: ");
 		aluno.setNomeDaCidade(tec.nextLine());
+
+		System.out.print("Informe o Curso que irá fazer: ");
+		aluno.setCursos(tec.next());
 
 		return aluno;
 	}
