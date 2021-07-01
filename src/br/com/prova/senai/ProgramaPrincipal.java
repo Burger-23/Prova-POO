@@ -34,7 +34,7 @@ public class ProgramaPrincipal {
 			switch (opcao) {
 
 			case 1:
-				alunoController.menu(alunos);
+				alunoController.menuAluno(alunos);
 				break;
 
 			case 2:

@@ -9,7 +9,7 @@ public class AlunoController {
 
 	private static Scanner tec;
 	List<Curso> cursos;
-	
+
 	public AlunoController() {
 		tec = new Scanner(System.in);
 	}
@@ -19,7 +19,7 @@ public class AlunoController {
 		return tec.nextInt();
 	}
 
-	public void menu(List<Aluno> alunos) {
+	public void menuAluno(List<Aluno> alunos) {
 
 		System.out.print("\n");
 		System.out.println("|-------------- MENU ---------------|");
@@ -33,7 +33,7 @@ public class AlunoController {
 
 		switch (opcao) {
 		case 1:
-			alunos.add(cadastrarAlunos());
+			alunos.add(cadastrarAlunos(cursos));
 			break;
 
 		case 2:
@@ -53,7 +53,13 @@ public class AlunoController {
 
 	}
 
-	public Aluno cadastrarAlunos() {
+	public Aluno cadastrarAlunos(List<Curso> cursos) {
+		
+		if (cursos.isEmpty()) {
+			System.out.println("Não possui cursos cadastrados.");
+			return null;
+		}
+		
 		Aluno aluno = new Aluno();
 
 		System.out.print("\n");
@@ -83,9 +89,6 @@ public class AlunoController {
 		tec.nextLine();
 		System.out.print("Informe em qual Cidade o Aluno mora: ");
 		aluno.setNomeDaCidade(tec.nextLine());
-
-		System.out.print("Informe o Curso que irá fazer: ");
-		aluno.setCursos(tec.next());
 
 		return aluno;
 	}
